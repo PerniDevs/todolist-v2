@@ -6,13 +6,15 @@ const mongoose = require("mongoose")
 const app = express();
 const _ = require("lodash")
 
+require("dotenv").config();
+const USERNAME_ENV = process.env.USERNAME_ENV
+const PASSWORD_ENV = process.env.PASSWORD_ENV
+const PORT = process.env.PORT
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-
-USERNAME_ENV="pernigottidevelopments"
-PASSWORD_ENV="1867Plazajewell_*"
 
 //Mongo DB connection
 mongoose.connect("mongodb+srv://"+USERNAME_ENV+":"+PASSWORD_ENV+"@cluster0.qu2n7jz.mongodb.net/todolistDB", {useNewUrlParser: true})
@@ -144,6 +146,6 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-app.listen(3000, function() {
-  console.log("Server started on NET port");
+app.listen(PORT, function() {
+  console.log("Server started on port: " + PORT);
 });0
