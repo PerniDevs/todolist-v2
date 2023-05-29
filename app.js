@@ -11,8 +11,11 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+USERNAME_ENV="pernigottidevelopments"
+PASSWORD_ENV="1867Plazajewell_*"
+
 //Mongo DB connection
-mongoose.connect("mongodb+srv://pernigottidevelopments:1867Plazajewell_*@cluster0.qu2n7jz.mongodb.net/todolistDB", {useNewUrlParser: true})
+mongoose.connect("mongodb+srv://"+USERNAME_ENV+":"+PASSWORD_ENV+"@cluster0.qu2n7jz.mongodb.net/todolistDB", {useNewUrlParser: true})
 
 //Mongo DB schema creation
 const itemSchema = new mongoose.Schema({
