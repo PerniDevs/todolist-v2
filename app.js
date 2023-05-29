@@ -61,7 +61,6 @@ app.get("/", function(req, res) {
     } else {
       res.render("list", {listTitle: "Today", newListItems: items});
     }
-    
   })
   .catch(function(err){
     console.log(err);
